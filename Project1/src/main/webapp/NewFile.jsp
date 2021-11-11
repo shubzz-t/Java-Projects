@@ -8,6 +8,6 @@
 </head>
 <body>
 <img src="profileimgs/java.png">
-<h1>AND its newvgxzvf</h1>
+<h1>AND its new</h1>
 </body>
 </html>
