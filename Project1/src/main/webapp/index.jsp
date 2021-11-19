@@ -38,9 +38,10 @@
 					programmers write code that humans can understand.Practice Coding ,
 					Utilise Your Code , Surf for the Solution , Code with Optimization
 					, Post for the Betterment..</p>
+					<a href="register_page.jsp">
 				<button class="btn btn-outline-light btn-lg">
 					<span class="	fa fa-user-plus"></span> Start ! Its Free
-				</button>
+				</button></a>
 				<a href="login_page.jsp" class="btn btn-outline-light btn-lg"> <span
 					class="fa fa-user-circle fa-spin"></span> Login
 				</a>
@@ -50,7 +51,7 @@
 	</div>
 
 	<div class="container">
-	<div class="row">
+	<div class="row align-items-baseline">
 	<%
 						DoPostModel dpo = new DoPostModel(ConnectionDataSource.setConnection());
 						ArrayList<Categories> listc = dpo.getAllCategories();
@@ -59,7 +60,7 @@
 						%>
 						
 		
-			<div class="col-md-4">
+			<div class="col-md-4 mb-2">
 				<div class="card">
 					<div class="card"">
 						<div class="card-body">

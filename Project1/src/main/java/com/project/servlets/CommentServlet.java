@@ -28,6 +28,8 @@ public class CommentServlet extends HttpServlet {
 		
 		CommentModel cm = new CommentModel(ConnectionDataSource.setConnection());
 		cm.insertComment(comment, uid, pid);
+	response.sendRedirect("show_individual_post.jsp?postid="+pid);	
+	
 	}
 
 }

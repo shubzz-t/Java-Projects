@@ -1,5 +1,6 @@
 
 
+<%@page import="com.database.entities.users"%>
 <%@page import="com.query.models.CommentModel"%>
 <%@page import="com.database.entities.Comments"%>
 <%@page import="java.util.ArrayList"%>
@@ -14,9 +15,17 @@
 <div class="row">
 
 
+	<!-- VALIDATION USING SESSION -->
 	<%
-	
-	
+	users user = (users) session.getAttribute("currentuser");
+
+	if (user == null) {
+		response.sendRedirect("login_page.jsp");
+	}
+	%>
+	<!--CLOSED VALIDATION USING SESSION -->
+
+	<%
 	DoPostModel dopost = new DoPostModel(ConnectionDataSource.setConnection());
 	List<Posts> list = null;
 	int cid = Integer.parseInt(request.getParameter("cid"));
@@ -45,16 +54,39 @@
 				<p><%=p.getPcontent()%></p>
 
 			</div>
+
 			<div class="card-footer primary-background text-center">
-				<a href="show_individual_post.jsp?postid=<%=p.getPid()%>"
-					class="btn btn-outline-light btn-sm">Read More...</a> 
-					<%LikesModel lm = new LikesModel(ConnectionDataSource.setConnection());
-					CommentModel cm = new CommentModel(ConnectionDataSource.setConnection());
-							ArrayList<Comments> comlist = cm.getCommentsByPost(p.getPid());
-					;%>
-					<a href="#!" class="btn btn-outline-light btn-sm"><i class="fa fa-thumbs-o-up"></i><span><%=lm.countLikeOnPost(p.getPid(), 1) %></span></a> 
-<a href="#!" class="btn btn-outline-light btn-sm"><i class="fa fa-thumbs-o-down"></i><span><%=lm.countDislikeOnPost(p.getPid(), 0) %></span></a> 
-					<a href="#!" class="btn btn-outline-light btn-sm"><i class="fa fa-commenting-o"></i><span><%=comlist.size() %></span></a>
+				<div class="form-row">
+					<div class="col-md-3">
+						<a href="show_individual_post.jsp?postid=<%=p.getPid()%>"
+							class="btn btn-outline-light btn-sm">Read More...</a>
+					</div>
+					<div class="form-group col-md-3">
+						<form action="LikeServlet" method="post">
+							<%LikesModel lm = new LikesModel(ConnectionDataSource.setConnection());%>
+							<input type="hidden" name="pid" value="<%=p.getPid()%>">
+							<input type="hidden" name="uid" value="<%=user.getId()%>">
+							<input type="hidden" name="like" value="1"> <input
+								type="hidden" name="likedislike" value="liked">
+							<button class="btn btn-outline-light btn-lg ">
+								<i class="fa fa-thumbs-o-up"></i><span class="like-counter">
+									<%=lm.countLikeOnPost(p.getPid(), 1)%></span>
+							</button>
+						</form>
+					</div>
+					<div class="form-group col-md-3">
+						<form action="LikeServlet" method="post">
+							<input type="hidden" name="pid" value="<%=p.getPid()%>">
+							<input type="hidden" name="uid" value="<%=user.getId()%>">
+							<input type="hidden" name="like" value="0"> <input
+								type="hidden" name="likedislike" value="disliked">
+							<button class="btn btn-outline-light btn-lg ">
+								<i class="fa fa-thumbs-o-down"></i><span class="like-counter">
+									<%=lm.countDislikeOnPost(p.getPid(), 0)%></span>
+							</button>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -3,9 +3,8 @@
 <%@page import="com.database.helper.ConnectionDataSource"%>
 <%@page import="com.query.models.DoPostModel"%>
 <nav class="navbar navbar-expand-lg navbar-light primary-background ">
-	<a class="navbar-brand" href="index.jsp">
-<!--  	<span>	<img src="images/cb.png" height="80" width="80" class="rounded-circle"></span>-->
-	<span><img src="images/name.png" height="90" width="200" ></a>
+	<a class="navbar-brand" href="index.jsp"> <!--  	<span>	<img src="images/cb.png" height="80" width="80" class="rounded-circle"></span>-->
+		<span><img src="images/name.png" height="90" width="200"></a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse"
 		data-target="#navbarSupportedContent"
 		aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -15,27 +14,27 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
-			<li class="nav-item active"><a class="nav-link" href="profile.jsp"><span
-					class="fa fa-globe"></span> Explore Your Knowledge <span
-					class="sr-only">(current)</span></a></li>
+			<li class="nav-item active"><a class="nav-link"
+				href="profile.jsp"><span class="fa fa-globe"></span> Explore
+					Your Knowledge <span class="sr-only">(current)</span></a></li>
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 				role="button" data-toggle="dropdown" aria-haspopup="true"
 				aria-expanded="false"> <span class="fa fa-cubes"></span>Categories
 			</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<%
-						DoPostModel dpp = new DoPostModel(ConnectionDataSource.setConnection());
-						ArrayList<Categories> listck = dpp.getAllCategories();
+					<%
+					DoPostModel dpp = new DoPostModel(ConnectionDataSource.setConnection());
+					ArrayList<Categories> listck = dpp.getAllCategories();
 
-						for (Categories cd : listck) {
-						%>
-						<a class="c-link list-group-item list-group-item-action" href="profile.jsp"
-							onClick="getPosts(<%=cd.getCid()%> , this)"><%=cd.getName()%></a>
-						<%
-						}
-						%>
-					</div></li>
+					for (Categories cd : listck) {
+					%>
+					<a class="c-link list-group-item list-group-item-action"
+						href="profile.jsp" onClick="getPosts(<%=cd.getCid()%> , this)"><%=cd.getName()%></a>
+					<%
+					}
+					%>
+				</div></li>
 			<li class="nav-item"><a class="nav-link " href="contact.jsp"><span
 					class="fa fa-address-book"></span> Contact</a></li>
 			<li class="nav-item"><a class="nav-link " href="login_page.jsp"><span

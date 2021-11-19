@@ -264,8 +264,8 @@ body {
 				</div>
 				<div class="modal-body">
 					<div class="container text-center">
-						<img src="profileimgs/<%=user.getProfile()%>" class="image-fluid"
-							style="border-radius: 50%; max-width: 100px;">
+						<a href="usersprofile.jsp"><img src="profileimgs/<%=user.getProfile()%>" class="image-fluid"
+							style="border-radius: 50%; max-width: 100px;"></a>
 						<h5 class="modal-title mt-3" id="exampleModalLabel"><%=user.getName()%></h5>
 
 						<!-- DETAILS OF THE USER -->
@@ -481,6 +481,88 @@ body {
 		crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="js/main.js" type="text/javascript"></script>
+
+<!-- SCRIPT FOR PROFILE EDITING -->
+	<script>
+		$(document).ready(function() {
+			let editStatus = false;
+			$('#edit-profile-button').click(function() {
+				if (editStatus == false) {
+					$("#profile-details").hide()
+					$("#profile-edit").show()
+					editStatus = true;
+					$(this).text("Back")
+				} else {
+					$("#profile-details").show()
+					$("#profile-edit").hide()
+					editStatus = false;
+					$(this).text("Edit")
+				}
+
+			});
+		});
+	</script>
+	<!--END  SCRIPT FOR PROFILE EDITING -->
+
+
+
+<!-- SCRIPT FOR POSTING DATA -->
+	<script>
+		$(document)
+				.ready(
+						function(e) {
+							$("#Add-post-form")
+									.on(
+											"submit",
+											function(event) {
+												//THIS CODE WILL BE CALLED WHEN FORM IS SUBMITTED
+												event.preventDefault();
+												console.log("SUBMMITTING...")
+
+												let form = new FormData(this);
+												//NOW REQUESTING SERVER
+												$
+														.ajax({
+															url : "AddPostServlet",
+															type : 'POST',
+															data : form,
+															success : function(
+																	data,
+																	textStatus,
+																	jqXHR) {
+																//FUNCTION WILL BE CALLED WHEN THE REQUEST COMES SUCCESSFULLLY
+																console
+																		.log(data)
+																if (data.trim() == 'SUCCESS') {
+																	swal(
+																			"POSTED",
+																			"Post is ready to viewers",
+																			"success");
+																} else {
+																	swal(
+																			"Something Wrong with Post",
+																			"Try Again Later",
+																			"error");
+																}
+															},
+															error : function(
+																	jqXHR,
+																	textStatus,
+																	errorThrown) {
+																//EXECUTE WHEN THERE IS ERROR
+																swal(
+																		"Something Wrong with Post",
+																		"Try Again Later",
+																		"error");
+															},
+															processData : false,
+															contentType : false
+														})
+
+											})
+						})
+	</script>
+	<!-- END SCRIPT FOR POSTING DATA -->
 
 </body>
 </html>
