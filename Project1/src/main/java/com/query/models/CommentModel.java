@@ -42,7 +42,7 @@ public class CommentModel {
 			pst.setInt(1, pid);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				com = new Comments(rs.getString("comment"), rs.getInt("pid"), rs.getInt("uid") , rs.getInt("likedis"));
+				com = new Comments(rs.getString("comment"), rs.getInt("pid"), rs.getInt("uid") );
 				list.add(com);
 			}
 		} catch (Exception e) {

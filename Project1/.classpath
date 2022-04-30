@@ -6,7 +6,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/opt/apache-tomcat-9.0.52/lib/servlet-api.jar" sourcepath="/home/shubham/Downloads/apache-tomcat-9.0.53-src.tar.zip">
+	<classpathentry kind="lib" path="/opt/apachetomcat-9/lib/servlet-api.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>

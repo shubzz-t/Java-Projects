@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login Page</title>
-<link rel="shortcut icon" type="image/jpg" href="images/cb.png"/>
+<title>Forgot Password</title>
+<link rel="shortcut icon" type="image/jpg" href="images/cb.png" />
 <!-- CSS only -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -31,14 +31,14 @@
 				<div class="col-md-4 offset-md-4">
 					<div class="card">
 						<div class="card-header primary-background text-white text-center">
-							<span class="fa fa-user-plus fa-3x"></span>
-							<p><b>Login here...</b></p>
+							<i class="fa fa-key fa-3x"></i>
+							<p>Reset Password</p>
 						</div>
 						<%
 						Message m = (Message) session.getAttribute("msg");
 						if (m != null) {
 						%>
-						<div class="alert <%= m.getCssClass() %>" role="alert">
+						<div class="alert <%=m.getCssClass()%>" role="alert">
 							<%=m.getContent()%>
 						</div>
 						<%
@@ -46,7 +46,7 @@
 						}
 						%>
 						<div class="card-body">
-							<form action="LoginServlet" method="POST">
+							<form method="post" action="ForgotPassword">
 								<div class="form-group">
 									<label for="exampleInputEmail1">Email address</label> <input
 										name="email" type="email" class="form-control"
@@ -55,26 +55,27 @@
 										never share your email with anyone else.</small>
 								</div>
 								<div class="form-group">
-									<label for="exampleInputPassword1">Password</label> <input
-										name="password" type="password" class="form-control" required
-										id="exampleInputPassword1">
+									<label for="exampleInputPassword1">New Password</label> <input
+										name="newpass" type="password" class="form-control" required
+										id="newpass">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Confirm New Password</label>
+									<input name="confirmpass" type="password" class="form-control"
+										required id="confirmpass">
 								</div>
 								<div class="container text-center">
-									<button type="submit" class="btn btn-primary">Submit</button>
+									<button type="submit" class="btn btn-primary" id="btn-reset">Submit</button>
 								</div>
 							</form>
 							<br>
-							<div>
-							<p align="center"><a href="forgotpassword.jsp"><b>Forgot Password??<b></b></a></p>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</main>
-	<%@include file="footer.jsp"%>
-
+<%@include file="footer.jsp"%>
 	<!-- JavaScript Bundle with Popper -->
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
 		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -84,5 +85,26 @@
 		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
 		crossorigin="anonymous"></script>
 	<script src="js/main.js" type="text/javascript"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js">
+		
+	</script>
+	<script>
+		$(document).ready(function() {
+			
+			
+			
+			$("#btn-reset").click(function(event) {
+				var newpass = $("#newpass").val();
+				var confirmpass = $("#confirmpass").val();
+				if (newpass != confirmpass) {
+					event.preventDefault();
+					swal("Passwords doesn't match..Check again..")
+				}
+					
+			})
+
+		});
+	</script>
 </body>
 </html>

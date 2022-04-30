@@ -109,7 +109,7 @@ body {
 				        			<span class="fa fa-map-marker"></span>
 				        		</div>
 				        		<div class="text pl-3">
-					            <p><span>Address:198 West 21th Street, Suite 721 New York NY 10016</span> </p>
+					            <p><span>Address:A/P :-  Malegaon Tal :- Baramati Dist :- Pune </span> </p>
 					          </div>
 				          </div>
 				        	<div class="dbox w-100 d-flex align-items-center">
@@ -117,7 +117,7 @@ body {
 				        			<span class="fa fa-phone"></span>
 				        		</div>
 				        		<div class="text pl-3">
-					            <p><span>Phone:+ 1235 2355 98</span> <a href="tel://1234567920"></a></p>
+					            <p><span>Phone:+91 9881099565</span> <a href="tel://1234567920"></a></p>
 					          </div>
 				          </div>
 				        	<div class="dbox w-100 d-flex align-items-center">
@@ -125,7 +125,7 @@ body {
 				        			<span class="fa fa-paper-plane"></span>
 				        		</div>
 				        		<div class="text pl-3">
-					            <p><span>Email:info@yoursite.com</span> <a href="mailto:info@yoursite.com"></a></p>
+					            <p><span>codebaker@gmail.com</span> <a href="mailto:info@yoursite.com"></a></p>
 					          </div>
 				          </div>
 				        	<div class="dbox w-100 d-flex align-items-center">
@@ -133,7 +133,7 @@ body {
 				        			<span class="fa fa-globe"></span>
 				        		</div>
 				        		<div class="text pl-3">
-					            <p><span>Website   yoursite.com</span> <a href="#"></a></p>
+					            <p><span>Website:- codebaker.com</span> <a href="#"></a></p>
 					          </div>
 				          </div>
 			          </div>
@@ -191,7 +191,7 @@ body {
     <!-- Copyrights -->
     <div class="primary-background py-4 text-dark">
       <div class="container text-center ">
-        <p class=" mb-0 py-2 text-dark ">© 2021 <b>CODE BAKER</b> All rights reserved.</p>
+        <p class=" mb-0 py-2 text-dark ">© 2022 <b>CODE BAKER </b>  All rights reserved.</p>
       </div>
     </div>
   </footer>

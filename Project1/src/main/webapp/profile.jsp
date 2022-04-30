@@ -372,7 +372,9 @@ body {
 			</div>
 		</div>
 	</div>
+	<br>
 	<!-- END ADD CATEGORY MODEL -->
+	<%@include file="footer.jsp"%>
 	
 	
 	

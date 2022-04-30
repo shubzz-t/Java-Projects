@@ -5,7 +5,7 @@ public class Comments {
 	String comment;
 	int pid;
 	int uid;
-	int like;
+//	int like;
 
 	public Comments(int id, String comment, int pid, int uid, int like) {
 		super();
@@ -13,7 +13,7 @@ public class Comments {
 		this.comment = comment;
 		this.pid = pid;
 		this.uid = uid;
-		this.like = like;
+	//	this.like = like;
 	}
 
 	public Comments(String comment, int pid, int uid, int like) {
@@ -21,7 +21,7 @@ public class Comments {
 		this.comment = comment;
 		this.pid = pid;
 		this.uid = uid;
-		this.like = like;
+		//this.like = like;
 	}
 
 	public Comments(String comment, int pid, int uid) {
@@ -62,12 +62,12 @@ public class Comments {
 		this.uid = uid;
 	}
 
-	public int getLike() {
-		return like;
-	}
-
-	public void setLike(int like) {
-		this.like = like;
-	}
+//	public int getLike() {
+//		return like;
+//	}
+//
+//	public void setLike(int like) {
+//		this.like = like;
+//	}
 
 }

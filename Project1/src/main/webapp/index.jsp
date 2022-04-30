@@ -75,9 +75,9 @@
 			</div>
 			</div>
 			
+<hr>
 
-
-
+<%@include file="footer.jsp"%>
 
 	<!-- JAVASCRIPTS -->
 	<!-- JavaScript Bundle with Popper -->

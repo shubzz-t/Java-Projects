@@ -91,7 +91,7 @@
 
 		</div>
 	</main>
-
+<%@include file="footer.jsp"%>
 
 	<!-- JAVASCRIPTS -->
 	<!-- JavaScript Bundle with Popper -->

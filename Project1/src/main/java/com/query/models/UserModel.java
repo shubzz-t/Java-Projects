@@ -157,5 +157,38 @@ public class UserModel {
 			return user;
 
 		}
+		
+		// GET USER BY EMAIL  METHOD FOR RESET
+		public users getUsersByEmail(String email) {
+			users user = null;
+
+			try {
+				String query = "SELECT * FROM users where email=?";
+				PreparedStatement pst = con.prepareStatement(query);
+				pst.setString(1, email);
+				ResultSet rs = pst.executeQuery();
+
+				if (rs.next()) {
+					user = new users();
+					user.setId(rs.getInt("id"));
+					String name = rs.getString("name");
+					user.setName(name);
+					user.setEmail(rs.getString("email"));
+					user.setPassword(rs.getString("password"));
+					user.setGender(rs.getString("gender"));
+					user.setAbout(rs.getString("about"));
+					user.setDateTime(rs.getTimestamp("Time"));
+					user.setProfile(rs.getString("profile"));
+
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return user;
+
+		}
+
 
 }
